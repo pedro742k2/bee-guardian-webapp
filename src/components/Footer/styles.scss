@@ -1,0 +1,29 @@
+.app-footer {
+  margin-top: 20px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.05);
+
+  h2,
+  p {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-email {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  .footer-heart {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 5px;
+    border-radius: 100%;
+  }
+
+  .footer-name {
+    font-size: 1.2rem;
+    font-family: "Pacifico", "Roboto";
+  }
+}

@@ -1,0 +1,78 @@
+:root {
+  font-family: "Roboto", Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  background: url(./Assets/background1.svg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: c over;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  outline: none;
+}
+
+.App {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.primary-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+
+  align-items: center;
+  appearance: none;
+  background-color: #fcfcfd;
+  border-radius: 5px;
+  border: none;
+  box-shadow: rgba(45, 35, 66, 0.3) 0 2px 4px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  color: #36395a;
+  cursor: pointer;
+  text-decoration: none;
+  transition: box-shadow 0.15s, transform 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: box-shadow, transform;
+}
+
+.primary-btn:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+    rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.primary-btn:active {
+  box-shadow: #d6d6e7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+.shadow-primary {
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}

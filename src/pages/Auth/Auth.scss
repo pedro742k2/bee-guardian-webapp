@@ -1,0 +1,84 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.5rem;
+
+  h1 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2.5rem;
+  }
+
+  .btn-icon {
+    margin-right: 10px;
+  }
+
+  .switch-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 50px;
+
+    span {
+      opacity: 0.75;
+      text-align: center;
+      font-size: 1rem;
+    }
+  }
+
+  button.submit-btn {
+    background-color: #feb719;
+    box-shadow: rgba(45, 35, 66, 0.3) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #fe9719 0 -3px 0 inset;
+  }
+
+  button.submit-btn:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #fe9719 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.5rem;
+
+  .form-input {
+    width: 100%;
+    padding: 15px 10px;
+    margin: 5px 10px;
+    background-color: rgba(255, 255, 255, 0.85);
+
+    border: none;
+    border-radius: 5px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    transition: all linear 0.1s;
+  }
+
+  .form-input:focus {
+    box-shadow: 4px 4px rgba(255, 109, 0, 0.5);
+  }
+
+  .form-check {
+    font-size: 1rem;
+  }
+}

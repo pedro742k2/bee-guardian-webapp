@@ -15,29 +15,27 @@ export interface IProps {
   updatePopup: (props: IPopup) => void;
 }
 
-export const Router = ({ updatePopup }: IProps) => {
-  return (
-    <BrowserRouter>
-      <NavBar />
-      <Routes>
-        <Route index element={<Home />} />
-        <Route path="/signin" element={<Signin updatePopup={updatePopup} />} />
-        <Route
-          path="/register"
-          element={<Register updatePopup={updatePopup} />}
-        />
+export const Router = ({ updatePopup }: IProps) => (
+  <BrowserRouter>
+    <NavBar />
+    <Routes>
+      <Route index element={<Home />} />
+      <Route path="/signin" element={<Signin updatePopup={updatePopup} />} />
+      <Route
+        path="/register"
+        element={<Register updatePopup={updatePopup} />}
+      />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard updatePopup={updatePopup} />
-            </ProtectedRoute>
-          }
-        />
+      <Route
+        path="/dashboard"
+        element={
+          <ProtectedRoute>
+            <Dashboard updatePopup={updatePopup} />
+          </ProtectedRoute>
+        }
+      />
 
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
-    </BrowserRouter>
-  );
-};
+      <Route path="*" element={<NoMatch />} />
+    </Routes>
+  </BrowserRouter>
+);

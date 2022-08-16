@@ -1,12 +1,13 @@
 import { createContext, useState } from "react";
 import { auth, ICredentials } from "../services/signin";
-import { getUserProfile } from "../services/getUserProfile";
+import { getUserProfile, IProfile } from "../services/getUserProfile";
 import { register, INewUser } from "../services/register";
 import { IChildren } from "../Types/Children";
 
 interface IUser {
   error?: string;
   token: string;
+  refresh_token: string;
   profile: {
     username: string;
     email: string;
@@ -26,6 +27,8 @@ interface IRegister extends INewUser {
 
 export interface IAuthContext {
   isAuthenticated: () => boolean;
+  updateUserProfile: (token: string, refresh_token: string) => Promise<void>;
+
   user: IUser;
   onLogin: (credentials: ILogin) => Promise<
     | {
@@ -54,6 +57,7 @@ export interface IAuthContext {
 
 const emptyUserState: IUser = {
   token: "",
+  refresh_token: "",
   profile: {
     username: "",
     email: "",
@@ -63,25 +67,75 @@ const emptyUserState: IUser = {
   },
 };
 
+export const storeTokenInStorage = (
+  remember: boolean,
+  token: string,
+  refreshToken: string
+) => {
+  if (remember) {
+    localStorage.setItem("token", token);
+    localStorage.setItem("refresh_token", refreshToken);
+  } else {
+    sessionStorage.setItem("token", token);
+    sessionStorage.setItem("refresh_token", refreshToken);
+  }
+};
+
+export const getTokenFromStorage = () => {
+  const token =
+    localStorage.getItem("token") || sessionStorage.getItem("token");
+  const refreshToken =
+    localStorage.getItem("refresh_token") ||
+    sessionStorage.getItem("refresh_token");
+
+  if (!token || !refreshToken) return { error: true };
+
+  return { token, refreshToken };
+};
+
+export const removeTokenFromStorage = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("refresh_token");
+
+  sessionStorage.removeItem("token");
+  sessionStorage.removeItem("refresh_token");
+};
+
 export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }: IChildren) => {
   const [user, setUser] = useState<IUser>(emptyUserState);
 
-  const updateUserProfile = async (token: string) => {
-    const profile = await getUserProfile(token);
+  const updateUserProfile = async (token: string, refreshToken: string) => {
+    const { error, newToken, newRefreshToken, profile } = await getUserProfile(
+      token,
+      refreshToken
+    );
 
-    setUser({ token, profile });
+    if (error) {
+      alert("Access denied.");
+      return document.location.replace("/");
+    }
+
+    if (profile)
+      setUser({
+        token: newToken || token,
+        refresh_token: newRefreshToken || refreshToken,
+        profile,
+      });
   };
 
   const isAuthenticated = (): boolean => {
     if (user.token) return true;
 
-    const token =
-      localStorage.getItem("token") || sessionStorage.getItem("token");
+    const { error, token, refreshToken } = getTokenFromStorage();
 
-    if (token) {
-      updateUserProfile(token);
+    if (error) {
+      return false;
+    }
+
+    if (token && refreshToken) {
+      updateUserProfile(token, refreshToken);
       return true;
     }
 
@@ -96,11 +150,7 @@ export const AuthProvider = ({ children }: IChildren) => {
 
     if (error) return { success: false, error: error };
 
-    if (remember) {
-      localStorage.setItem("token", userInfo.token);
-    } else {
-      sessionStorage.setItem("token", userInfo.token);
-    }
+    storeTokenInStorage(remember, userInfo.token, userInfo.refresh_token);
 
     setUser(userInfo);
     return { success: true, userInfo };
@@ -114,19 +164,13 @@ export const AuthProvider = ({ children }: IChildren) => {
 
     if (error) return { success: false, error };
 
-    if (remember) {
-      localStorage.setItem("token", userInfo.token);
-    } else {
-      sessionStorage.setItem("token", userInfo.token);
-    }
-
+    storeTokenInStorage(remember, userInfo.token, userInfo.refresh_token);
     setUser(userInfo);
     return { success: true, userInfo };
   };
 
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    sessionStorage.removeItem("token");
+    removeTokenFromStorage();
     setUser(emptyUserState);
     return document.location.replace("/signin");
   };
@@ -134,6 +178,7 @@ export const AuthProvider = ({ children }: IChildren) => {
   const value: IAuthContext = {
     user,
     isAuthenticated,
+    updateUserProfile,
     onLogin: handleLogin,
     onRegister: handleRegister,
     onLogout: handleLogout,

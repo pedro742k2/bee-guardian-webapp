@@ -131,6 +131,12 @@
       background-color: rgba(10, 82, 141, 0.25);
       padding: 2px;
       border-radius: 100%;
+
+      transition: all linear 0.1s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
 
     p {

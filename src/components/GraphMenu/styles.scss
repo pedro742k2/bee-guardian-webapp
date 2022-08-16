@@ -1,0 +1,87 @@
+.graph-menu-container {
+  width: 90vw;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+
+  margin-bottom: 20px;
+
+  .charts-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    margin-bottom: 20px;
+
+    padding: 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.15);
+
+    img {
+      margin-right: 20px;
+      width: 70px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  .chart-option-inputs {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.5);
+
+      select,
+      input,
+      button {
+        background-color: rgba(255, 255, 255, 0.5);
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+
+      button {
+        border: 1.5px solid rgba(0, 0, 0, 0.2);
+        transition: all linear 0.1s;
+        display: flex;
+
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+
+      .info-icon {
+        margin-left: 10px;
+        width: 20px;
+        height: 20px;
+
+        background-color: rgba(10, 82, 141, 0.25);
+        padding: 2px;
+        border-radius: 100%;
+        transition: all linear 0.1s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+
+      button {
+        margin-left: 10px;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 .dashboard-container {
-  width: 80vw;
+  width: 90vw;
   height: 100%;
 
   display: flex;
@@ -13,5 +13,9 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+  }
+
+  .graph-divider {
+    width: 90vw;
   }
 }

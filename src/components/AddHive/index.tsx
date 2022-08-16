@@ -71,7 +71,7 @@ export const AddHive = ({ token, updatePopup }: IProps) => {
   return (
     <main className="add-hive-container shadow-primary">
       <div className="add-hive-prompt">
-        <h2>Add an Hive</h2>
+        <h2>Add a Hive</h2>
         <img
           className={showForm ? "close" : ""}
           src={Open}

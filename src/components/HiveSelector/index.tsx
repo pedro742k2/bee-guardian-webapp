@@ -103,7 +103,7 @@ export const HiveSelector = ({
                 <div
                   className={`shadow-primary ${
                     selectedHive === hive_id ? "selected" : ""
-                  } animate__animated animate__rubberBand`}
+                  } animate__animated animate__backInDown`}
                   onClick={() => updateSelectedHive(hive_id)}
                 >
                   <h3>
@@ -134,11 +134,13 @@ export const HiveSelector = ({
         )}
       </div>
 
-      <div className="hs-info-container">
-        <p>Click on the blue icon (</p>
-        <FcInfo className="info-icon" />
-        <p>) to learn when was the hive added.</p>
-      </div>
+      {hives.length ? (
+        <div className="hs-info-container">
+          <p>Click on the blue icon (</p>
+          <FcInfo className="info-icon" />
+          <p>) to learn when was the hive added.</p>
+        </div>
+      ) : null}
     </div>
   );
 };

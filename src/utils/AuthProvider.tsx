@@ -30,16 +30,11 @@ export interface IAuthContext {
   updateUserProfile: (token: string, refresh_token: string) => Promise<void>;
 
   user: IUser;
-  onLogin: (credentials: ILogin) => Promise<
-    | {
-        success: boolean;
-        error: string;
-      }
-    | {
-        success: boolean;
-        userInfo: IUser;
-      }
-  >;
+  onLogin: (credentials: ILogin) => Promise<{
+    success: boolean;
+    userInfo?: IUser;
+    error?: string;
+  }>;
   onRegister: (credentials: IRegister) => Promise<
     | {
         success: boolean;

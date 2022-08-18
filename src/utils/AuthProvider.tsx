@@ -110,7 +110,7 @@ export const AuthProvider = ({ children }: IChildren) => {
 
     if (error) {
       alert("Access denied.");
-      return document.location.replace(`/${baseRoute}/`);
+      return document.location.replace(`/`);
     }
 
     if (profile)
@@ -168,7 +168,7 @@ export const AuthProvider = ({ children }: IChildren) => {
   const handleLogout = () => {
     removeTokenFromStorage();
     setUser(emptyUserState);
-    return document.location.replace(`/${baseRoute}/signin`);
+    return document.location.replace(`/${baseRoute}/#/signin/`);
   };
 
   const value: IAuthContext = {

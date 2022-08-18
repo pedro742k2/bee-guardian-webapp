@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 // Protected Route Util
 import { ProtectedRoute } from "./utils/ProtectedRoute";
 // Pages
@@ -10,31 +10,27 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 // Components
 import { NavBar } from "./components/Navbar";
 import { IPopup } from "./App";
-import { baseRoute } from "./services/baseRoute";
 
 export interface IProps {
   updatePopup: (props: IPopup) => void;
 }
 
 export const Router = ({ updatePopup }: IProps) => (
-  <BrowserRouter>
+  <HashRouter>
     <NavBar />
 
     <div className="nav-bar-margin-box"></div>
 
     <Routes>
       <Route index element={<Home />} />
+      <Route path={`/signin`} element={<Signin updatePopup={updatePopup} />} />
       <Route
-        path={`/${baseRoute}/signin`}
-        element={<Signin updatePopup={updatePopup} />}
-      />
-      <Route
-        path={`/${baseRoute}/register`}
+        path={`/register`}
         element={<Register updatePopup={updatePopup} />}
       />
 
       <Route
-        path={`/${baseRoute}/dashboard`}
+        path={`/dashboard`}
         element={
           <ProtectedRoute>
             <Dashboard updatePopup={updatePopup} />
@@ -44,5 +40,5 @@ export const Router = ({ updatePopup }: IProps) => (
 
       <Route path="*" element={<NoMatch />} />
     </Routes>
-  </BrowserRouter>
+  </HashRouter>
 );

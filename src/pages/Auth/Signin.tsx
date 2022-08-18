@@ -6,7 +6,6 @@ import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { TbSwitch2 } from "react-icons/tb";
 import { IPopup } from "../../App";
-import { baseRoute } from "../../services/baseRoute";
 
 interface IProps {
   updatePopup: (props: IPopup) => void;
@@ -45,7 +44,7 @@ export const Signin = ({ updatePopup }: IProps) => {
         duration_unit: "s",
       });
 
-    return navigate(`/${baseRoute}/dashboard`);
+    return navigate(`/dashboard`);
   };
 
   return (

@@ -58,6 +58,10 @@
       text-decoration: none;
       color: #fff;
 
+      &.active {
+        opacity: 0.5;
+      }
+
       span {
         color: #000;
       }
@@ -66,10 +70,6 @@
         width: 15px;
         margin-right: 5px;
       }
-    }
-
-    .visiting {
-      opacity: 0.5;
     }
 
     button {

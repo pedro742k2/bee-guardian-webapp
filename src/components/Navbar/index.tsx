@@ -14,14 +14,13 @@ import SettingsIcon from "../../Assets/Icons/NavBar/settings.svg";
 import CreditsIcon from "../../Assets/Icons/NavBar/credits.svg";
 import SigninIcon from "../../Assets/Icons/NavBar/signin.svg";
 import SignoutIcon from "../../Assets/Icons/NavBar/signout.svg";
-import { baseRoute } from "../../services/baseRoute";
 
 export const NavBar = () => {
   const { isAuthenticated, onLogout } = useAuth();
   const [path, setPath] = useState(document.location.pathname);
 
-  const updateClass = (targetPath: string) =>
-    path === `/${baseRoute}/${targetPath}` ? "nav-link visiting" : "nav-link";
+  const updateClass = (currentPath: string, targetPath: string) =>
+    currentPath === `/${targetPath}` ? "nav-link visiting" : "nav-link";
 
   const changeNav = () => {
     const navBar = document.querySelector(".app-nav-container")! as HTMLElement;
@@ -35,9 +34,12 @@ export const NavBar = () => {
     changeNav();
     // adding the event when scroll change Logo
     window.addEventListener("scroll", changeNav);
+    window.addEventListener("hashchange", () =>
+      setPath("/" + document.location.hash.split("/")[1])
+    );
+  }, []);
 
-    setPath(document.location.pathname);
-  });
+  useEffect(() => console.log(path), [path]);
 
   return (
     <div className="app-nav-container">
@@ -46,19 +48,15 @@ export const NavBar = () => {
         BEE GUARDIAN
       </h3>
       <nav className="app-nav">
-        <NavLink
-          reloadDocument
-          className={updateClass("/")}
-          to={`/${baseRoute}/`}
-        >
+        <NavLink reloadDocument className={updateClass(path, "/")} to={`/`}>
           <img src={HomeIcon} alt="Home" />
           <span>Home</span>
         </NavLink>
 
         <NavLink
           reloadDocument
-          className={updateClass("/dashboard")}
-          to={`/${baseRoute}/dashboard`}
+          className={updateClass(path, "/dashboard")}
+          to={`/dashboard`}
         >
           <img src={DashboardIcon} alt="Dashboard" />
           <span>Dashboard</span>
@@ -66,8 +64,8 @@ export const NavBar = () => {
 
         <NavLink
           reloadDocument
-          className={updateClass("/news")}
-          to={`/${baseRoute}/news`}
+          className={updateClass(path, "/news")}
+          to={`/news`}
         >
           <img src={NewsIcon} alt="News" />
           <span>News</span>
@@ -75,8 +73,8 @@ export const NavBar = () => {
 
         <NavLink
           reloadDocument
-          className={updateClass("/store")}
-          to={`/${baseRoute}/store`}
+          className={updateClass(path, "/store")}
+          to={`/store`}
         >
           <img src={StoreIcon} alt="Store" />
           <span>Store</span>
@@ -84,8 +82,8 @@ export const NavBar = () => {
 
         <NavLink
           reloadDocument
-          className={updateClass("/about")}
-          to={`/${baseRoute}/about`}
+          className={updateClass(path, "/about")}
+          to={`/about`}
         >
           <img src={AboutIcon} alt="About" />
           <span>About</span>
@@ -93,8 +91,8 @@ export const NavBar = () => {
 
         <NavLink
           reloadDocument
-          className={updateClass("/settings")}
-          to={`/${baseRoute}/settings`}
+          className={updateClass(path, "/settings")}
+          to={`/settings`}
         >
           <img src={SettingsIcon} alt="Settings" />
           <span>Settings</span>
@@ -102,8 +100,8 @@ export const NavBar = () => {
 
         <NavLink
           reloadDocument
-          className={updateClass("/credits")}
-          to={`/${baseRoute}/credits`}
+          className={updateClass(path, "/credits")}
+          to={`/credits`}
         >
           <img src={CreditsIcon} alt="Credits" />
           <span>Credits</span>
@@ -117,8 +115,8 @@ export const NavBar = () => {
         ) : (
           <NavLink
             reloadDocument
-            className={updateClass("/signin")}
-            to={`/${baseRoute}/signin`}
+            className={updateClass(path, "/signin")}
+            to={`/signin`}
           >
             <img src={SigninIcon} alt="Signin" />
             <span>Sign in</span>

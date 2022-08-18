@@ -10,6 +10,7 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 // Components
 import { NavBar } from "./components/Navbar";
 import { IPopup } from "./App";
+import { baseRoute } from "./services/baseRoute";
 
 export interface IProps {
   updatePopup: (props: IPopup) => void;
@@ -23,14 +24,17 @@ export const Router = ({ updatePopup }: IProps) => (
 
     <Routes>
       <Route index element={<Home />} />
-      <Route path="/signin" element={<Signin updatePopup={updatePopup} />} />
       <Route
-        path="/register"
+        path={`/${baseRoute}/signin`}
+        element={<Signin updatePopup={updatePopup} />}
+      />
+      <Route
+        path={`/${baseRoute}/register`}
         element={<Register updatePopup={updatePopup} />}
       />
 
       <Route
-        path="/dashboard"
+        path={`/${baseRoute}/dashboard`}
         element={
           <ProtectedRoute>
             <Dashboard updatePopup={updatePopup} />

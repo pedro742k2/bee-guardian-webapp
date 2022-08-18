@@ -1,8 +1,9 @@
 import { createContext, useState } from "react";
 import { auth, ICredentials } from "../services/signin";
-import { getUserProfile, IProfile } from "../services/getUserProfile";
+import { getUserProfile } from "../services/getUserProfile";
 import { register, INewUser } from "../services/register";
 import { IChildren } from "../Types/Children";
+import { baseRoute } from "../services/baseRoute";
 
 interface IUser {
   error?: string;
@@ -109,7 +110,7 @@ export const AuthProvider = ({ children }: IChildren) => {
 
     if (error) {
       alert("Access denied.");
-      return document.location.replace("/");
+      return document.location.replace(`/${baseRoute}/`);
     }
 
     if (profile)
@@ -167,7 +168,7 @@ export const AuthProvider = ({ children }: IChildren) => {
   const handleLogout = () => {
     removeTokenFromStorage();
     setUser(emptyUserState);
-    return document.location.replace("/signin");
+    return document.location.replace(`/${baseRoute}/signin`);
   };
 
   const value: IAuthContext = {

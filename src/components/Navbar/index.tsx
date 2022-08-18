@@ -14,13 +14,14 @@ import SettingsIcon from "../../Assets/Icons/NavBar/settings.svg";
 import CreditsIcon from "../../Assets/Icons/NavBar/credits.svg";
 import SigninIcon from "../../Assets/Icons/NavBar/signin.svg";
 import SignoutIcon from "../../Assets/Icons/NavBar/signout.svg";
+import { baseRoute } from "../../services/baseRoute";
 
 export const NavBar = () => {
   const { isAuthenticated, onLogout } = useAuth();
   const [path, setPath] = useState(document.location.pathname);
 
   const updateClass = (targetPath: string) =>
-    path === targetPath ? "nav-link visiting" : "nav-link";
+    path === `/${baseRoute}/${targetPath}` ? "nav-link visiting" : "nav-link";
 
   const changeNav = () => {
     const navBar = document.querySelector(".app-nav-container")! as HTMLElement;
@@ -45,7 +46,11 @@ export const NavBar = () => {
         BEE GUARDIAN
       </h3>
       <nav className="app-nav">
-        <NavLink reloadDocument className={updateClass("/")} to="/">
+        <NavLink
+          reloadDocument
+          className={updateClass("/")}
+          to={`/${baseRoute}/`}
+        >
           <img src={HomeIcon} alt="Home" />
           <span>Home</span>
         </NavLink>
@@ -53,23 +58,35 @@ export const NavBar = () => {
         <NavLink
           reloadDocument
           className={updateClass("/dashboard")}
-          to="/dashboard"
+          to={`/${baseRoute}/dashboard`}
         >
           <img src={DashboardIcon} alt="Dashboard" />
           <span>Dashboard</span>
         </NavLink>
 
-        <NavLink reloadDocument className={updateClass("/news")} to="/news">
+        <NavLink
+          reloadDocument
+          className={updateClass("/news")}
+          to={`/${baseRoute}/news`}
+        >
           <img src={NewsIcon} alt="News" />
           <span>News</span>
         </NavLink>
 
-        <NavLink reloadDocument className={updateClass("/store")} to="/store">
+        <NavLink
+          reloadDocument
+          className={updateClass("/store")}
+          to={`/${baseRoute}/store`}
+        >
           <img src={StoreIcon} alt="Store" />
           <span>Store</span>
         </NavLink>
 
-        <NavLink reloadDocument className={updateClass("/about")} to="/about">
+        <NavLink
+          reloadDocument
+          className={updateClass("/about")}
+          to={`/${baseRoute}/about`}
+        >
           <img src={AboutIcon} alt="About" />
           <span>About</span>
         </NavLink>
@@ -77,7 +94,7 @@ export const NavBar = () => {
         <NavLink
           reloadDocument
           className={updateClass("/settings")}
-          to="/settings"
+          to={`/${baseRoute}/settings`}
         >
           <img src={SettingsIcon} alt="Settings" />
           <span>Settings</span>
@@ -86,7 +103,7 @@ export const NavBar = () => {
         <NavLink
           reloadDocument
           className={updateClass("/credits")}
-          to="/credits"
+          to={`/${baseRoute}/credits`}
         >
           <img src={CreditsIcon} alt="Credits" />
           <span>Credits</span>
@@ -101,7 +118,7 @@ export const NavBar = () => {
           <NavLink
             reloadDocument
             className={updateClass("/signin")}
-            to={"/signin"}
+            to={`/${baseRoute}/signin`}
           >
             <img src={SigninIcon} alt="Signin" />
             <span>Sign in</span>

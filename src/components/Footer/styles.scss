@@ -1,8 +1,11 @@
 .app-footer {
   margin-top: 20px;
   width: 100%;
-  backdrop-filter: blur(10px);
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 75, 0, 0.8);
+
+  box-shadow: rgba(255, 75, 0, 0.5) 0px -5px, rgba(255, 75, 0, 0.4) 0px -10px,
+    rgba(255, 75, 0, 0.3) 0px 15px, rgba(255, 75, 0, 0.2) 0px -20px,
+    rgba(255, 75, 0, 0.1) 0px -25px;
 
   h2,
   p {

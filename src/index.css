@@ -29,6 +29,11 @@ body {
   outline: none;
 }
 
+.nav-bar-margin-box {
+  width: 100vw;
+  height: 10vh;
+}
+
 .App {
   display: flex;
   justify-content: space-between;

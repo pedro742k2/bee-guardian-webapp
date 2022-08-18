@@ -103,7 +103,7 @@ export const HiveSelector = ({
                 <div
                   className={`shadow-primary ${
                     selectedHive === hive_id ? "selected" : ""
-                  } animate__animated animate__backInDown`}
+                  }`}
                   onClick={() => updateSelectedHive(hive_id)}
                 >
                   <h3>

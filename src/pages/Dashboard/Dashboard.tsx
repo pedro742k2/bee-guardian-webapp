@@ -18,7 +18,7 @@ export const Dashboard = ({ updatePopup }: IProps) => {
     undefined
   );
   const [hiveData, setHiveData] = useState<IHiveData>();
-  const [type, setType] = useState<number>(0);
+  const [type, setType] = useState<number>(1);
   const [targetedDate, setTargetedDate] = useState<string>();
 
   const updateSelectedType = (event: ChangeEvent<HTMLSelectElement>) =>
@@ -100,7 +100,7 @@ export const Dashboard = ({ updatePopup }: IProps) => {
         clearDate={clearDate}
       />
       <hr className="divider graph-divider" />
-      <Charts data={hiveData?.data} />
+      <Charts selectedHive={selectedHive} data={hiveData?.data} />
     </main>
   );
 };

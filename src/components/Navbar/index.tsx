@@ -22,7 +22,21 @@ export const NavBar = () => {
   const updateClass = (targetPath: string) =>
     path === targetPath ? "nav-link visiting" : "nav-link";
 
-  useEffect(() => setPath(document.location.pathname));
+  const changeNav = () => {
+    const navBar = document.querySelector(".app-nav-container")! as HTMLElement;
+
+    if (window.scrollY >= 66) return navBar.classList.add("scrolled");
+
+    return navBar.classList.remove("scrolled");
+  };
+
+  useEffect(() => {
+    changeNav();
+    // adding the event when scroll change Logo
+    window.addEventListener("scroll", changeNav);
+
+    setPath(document.location.pathname);
+  });
 
   return (
     <div className="app-nav-container">
@@ -79,7 +93,7 @@ export const NavBar = () => {
         </NavLink>
 
         {isAuthenticated() ? (
-          <button onClick={onLogout}>
+          <button onClick={onLogout} className="shadow-primary">
             <img src={SignoutIcon} alt="Signout" />
             <span>Sign out</span>
           </button>

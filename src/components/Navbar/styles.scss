@@ -1,8 +1,31 @@
 .app-nav-container {
+  position: fixed;
+  top: 0;
+  height: 10vh;
+
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  transition: all 0.1s linear;
+
+  &.scrolled {
+    font-size: 0.8rem;
+    z-index: 999;
+    background-color: rgb(255, 116, 0);
+    height: 6vh;
+
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+    h3 {
+      font-size: 0.8rem;
+
+      img {
+        width: 40px;
+      }
+    }
+  }
 
   h3 {
     display: flex;

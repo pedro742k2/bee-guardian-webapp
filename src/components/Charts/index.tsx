@@ -22,10 +22,11 @@ export interface IChartData {
 }
 
 interface IProps {
+  selectedHive: number | undefined;
   data: IData[] | undefined;
 }
 
-export const Charts = ({ data }: IProps) => {
+export const Charts = ({ selectedHive, data }: IProps) => {
   const [chartData, setChartData] = useState<IChartData>({
     weightData: [],
     intTempData: [],
@@ -138,10 +139,17 @@ export const Charts = ({ data }: IProps) => {
           <h1>
             <img src={WarningIcon} alt="warning " /> Warning
           </h1>
-          <h2>No data available.</h2>
+
+          <h2>
+            {selectedHive
+              ? "No readings are available."
+              : "No hive is selected."}
+          </h2>
+
           <h3>
-            Try to select a hive, or switch the measurement type or the targeted
-            date.
+            {selectedHive
+              ? "Try to switch the measurement type or the targeted date."
+              : "Select a hive to see its readings."}
           </h3>
         </div>
       )}

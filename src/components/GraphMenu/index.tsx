@@ -24,6 +24,9 @@ export const GraphMenu = ({
     return clearDate();
   };
 
+  const getInformationalTitle = () =>
+    "Readings from last hour and last day return every reading available.\nReadings from last week and last month return every day average.\nReadings from last year return every week average.";
+
   return (
     <div className="graph-menu-container">
       <h1 className="charts-title shadow-primary">
@@ -33,25 +36,16 @@ export const GraphMenu = ({
 
       <div className="chart-option-inputs">
         <div>
-          <select
-            className="shadow-primary"
-            onChange={updateSelectedType}
-            title={
-              "Readings from last hour and last day return every reading available.\nReadings from last week and last month return every day average.\nReadings from last year return every week average."
-            }
-          >
+          <select className="shadow-primary" onChange={updateSelectedType}>
             <option value={0}>Readings from last hour</option>
-            <option value={1}>Readings from last day</option>
+            <option selected={true} value={1}>
+              Readings from last day
+            </option>
             <option value={2}>Readings from last week</option>
             <option value={3}>Readings from last month</option>
             <option value={4}>Readings from last year</option>
           </select>
-          <FcInfo
-            className="info-icon"
-            title={
-              "Readings from last hour and last day return every reading available.\nReadings from last week and last month return every day average.\nReadings from last year return every week average."
-            }
-          />
+          <FcInfo className="info-icon" title={getInformationalTitle()} />
         </div>
 
         <div>
@@ -62,6 +56,23 @@ export const GraphMenu = ({
           />
           <button onClick={clearDateInput}>Clear</button>
         </div>
+      </div>
+
+      <div className="types-info-container shadow-primary">
+        <div>
+          <FcInfo className="info-icon" title={getInformationalTitle()} />
+        </div>
+
+        <span>
+          Readings from last hour and last day will return every reading
+          available on the database in the respective time period.
+          <br />
+          Readings from last week and last month will return the average of
+          every day between the respective time period.
+          <br />
+          Readings from last year will return the average of every week between
+          now and last year.
+        </span>
       </div>
     </div>
   );

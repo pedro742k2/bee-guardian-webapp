@@ -18,6 +18,9 @@ export interface IProps {
 export const Router = ({ updatePopup }: IProps) => (
   <BrowserRouter>
     <NavBar />
+
+    <div className="nav-bar-margin-box"></div>
+
     <Routes>
       <Route index element={<Home />} />
       <Route path="/signin" element={<Signin updatePopup={updatePopup} />} />

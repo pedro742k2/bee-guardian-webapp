@@ -78,6 +78,10 @@ export const Dashboard = ({ updatePopup }: IProps) => {
 
   return (
     <main className="dashboard-container">
+      <h1 className="dashboard-title">
+        Welcome back, <span>{user.profile.name}</span>
+      </h1>
+
       <HiveSelector
         updatePopup={updatePopup}
         token={user.token}

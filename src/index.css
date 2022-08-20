@@ -91,3 +91,21 @@ hr.divider {
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
+.author-name {
+  font-family: Pacifico, Roboto;
+}
+
+.author-name a {
+  text-decoration: none;
+  color: #000;
+  border: 0 solid rgba(255, 255, 255, 0.2);
+  border-width: 0 0 2px 0;
+  padding: 0 5px;
+
+  transition: all linear 0.2s;
+}
+
+.author-name a:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+}

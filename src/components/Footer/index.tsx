@@ -9,7 +9,9 @@ export const Footer = () => (
     </p>
     <p>
       Made with <span className="footer-heart">❤️</span> by{" "}
-      <span className="footer-name">Pedro Batista</span>
+      <span className="footer-name author-name">
+        <a href="https://github.com/pedro742k2">Pedro Batista</a>
+      </span>
     </p>
   </footer>
 );

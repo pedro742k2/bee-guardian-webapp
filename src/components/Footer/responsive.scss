@@ -1,0 +1,17 @@
+@media screen and (max-width: 1150px) {
+  .app-footer {
+    font-size: 0.8rem;
+    .footer-name {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .app-footer {
+    font-size: 0.6rem;
+    .footer-name {
+      font-size: 0.7rem;
+    }
+  }
+}

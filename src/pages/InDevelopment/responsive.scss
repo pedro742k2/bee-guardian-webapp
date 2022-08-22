@@ -1,0 +1,28 @@
+@media screen and (max-width: 1150px) {
+  .in-dev-container {
+    font-size: 0.8rem;
+
+    div {
+      h1 {
+        font-size: 1.2rem;
+
+        img {
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .in-dev-container {
+    div {
+      padding: 20px;
+
+      h1 {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  }
+}

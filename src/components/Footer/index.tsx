@@ -1,4 +1,5 @@
 import "./styles.scss";
+import "./responsive.scss";
 
 export const Footer = () => (
   <footer className="app-footer">

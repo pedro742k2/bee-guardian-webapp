@@ -4,7 +4,6 @@
   align-items: center;
   flex-direction: row;
 
-  // width: auto;
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   padding: 50px;
@@ -12,6 +11,7 @@
   border-radius: 5px;
   color: #fff;
   font-size: 1.5rem;
+  margin-bottom: 20px;
 
   h1 {
     display: flex;

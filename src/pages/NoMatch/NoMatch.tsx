@@ -1,4 +1,5 @@
 import "./NoMatch.scss";
+import "./responsive.scss";
 import NotFound from "../../Assets/Icons/no-results.png";
 
 export const NoMatch = () => {

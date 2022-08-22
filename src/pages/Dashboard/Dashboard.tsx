@@ -31,8 +31,6 @@ export const Dashboard = ({ updatePopup }: IProps) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(type, targetedDate);
-
       const data = await fetch(URL + "/get-hive-data", {
         method: "POST",
         headers: {

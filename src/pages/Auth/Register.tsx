@@ -1,6 +1,6 @@
 import { useState, ChangeEvent } from "react";
 import { useAuth } from "../../services/useAuth";
-import "./Auth.scss";
+import "./styles.scss";
 import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { TbSwitch2 } from "react-icons/tb";

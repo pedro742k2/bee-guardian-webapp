@@ -1,4 +1,5 @@
 import "./styles.scss";
+import "./responsive.scss";
 import DevIcon from "../../Assets/Icons/in-dev.png";
 
 export const InDevelopment = () => {

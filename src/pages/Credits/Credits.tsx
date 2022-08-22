@@ -1,4 +1,3 @@
-import "./styles.scss";
 // Logo Icon + License
 import BeeIcon from "../../Assets/Icons/bee.png";
 import BeeLicense from "../../Assets/Licenses/bee-logo.pdf";
@@ -28,6 +27,9 @@ import LineChartLicense from "../../Assets/Licenses/line-chart.pdf";
 // Chart Options Icon + License
 import ChartConfigIcon from "../../Assets/Icons/chart-options.png";
 import ChartConfigLicense from "../../Assets/Licenses/chart-opt.pdf";
+
+import "./styles.scss";
+import "./responsive.scss";
 
 export const Credits = () => {
   const renderImgCredit = (

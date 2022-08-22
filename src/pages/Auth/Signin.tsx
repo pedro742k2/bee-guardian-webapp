@@ -1,11 +1,12 @@
 import { useState, ChangeEvent } from "react";
 import { useAuth } from "../../services/useAuth";
-import "./Auth.scss";
 import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { TbSwitch2 } from "react-icons/tb";
 import { IPopup } from "../../App";
+import "./styles.scss";
+import "./responsive.scss";
 
 interface IProps {
   updatePopup: (props: IPopup) => void;

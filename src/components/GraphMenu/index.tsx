@@ -36,11 +36,13 @@ export const GraphMenu = ({
 
       <div className="chart-option-inputs">
         <div>
-          <select className="shadow-primary" onChange={updateSelectedType}>
+          <select
+            defaultValue={1}
+            className="shadow-primary"
+            onChange={updateSelectedType}
+          >
             <option value={0}>Readings from last hour</option>
-            <option selected={true} value={1}>
-              Readings from last day
-            </option>
+            <option value={1}>Readings from last day</option>
             <option value={2}>Readings from last week</option>
             <option value={3}>Readings from last month</option>
             <option value={4}>Readings from last year</option>

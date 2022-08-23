@@ -136,9 +136,7 @@ export const HiveSelector = ({
 
       {hives.length ? (
         <div className="hs-info-container">
-          <p>Click on the blue icon (</p>
-          <FcInfo className="info-icon" />
-          <p>) to learn when was the hive added.</p>
+          <p>Click on the blue icon to learn when was the hive added.</p>
         </div>
       ) : null}
     </div>

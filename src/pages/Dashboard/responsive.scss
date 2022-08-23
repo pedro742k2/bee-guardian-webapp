@@ -1,0 +1,389 @@
+@media screen and (max-width: 1150px) {
+  .dashboard-container {
+    padding: 20px 0px;
+
+    .dashboard-title {
+      font-size: 1.5rem;
+    }
+
+    /*** 
+    HIVE SELECTOR - RESPONSIVE SCSS ->> |>
+    ***/
+    .hives-selector-container {
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .hives-selector {
+        .hive-badge {
+          font-size: 0.8rem;
+
+          div {
+            span {
+              font-size: 0.8rem;
+            }
+
+            .info-icon {
+              width: 16px;
+              height: 16px;
+            }
+          }
+
+          button {
+            font-size: 0.7rem;
+          }
+        }
+      }
+
+      .hs-info-container {
+        font-size: 0.8rem;
+        margin-top: 10px;
+      }
+    }
+    /*** 
+    <| <<- HIVE SELECTOR - RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    LAST READINGS - RESPONSIVE SCSS ->> |>
+    ***/
+    .last-readings-container {
+      font-size: 0.8rem;
+
+      .values-box-container {
+        gap: 10px;
+
+        .values-box {
+          .not-found-container {
+            img {
+              width: 20px;
+            }
+          }
+
+          p:not(.values-box-title) {
+            margin: 5px;
+          }
+
+          .values-box-title {
+            padding: 5px;
+
+            img {
+              width: 20px;
+              margin-right: 5px;
+            }
+          }
+        }
+      }
+      .last-reading-date {
+        margin-top: 5px;
+
+        img {
+          width: 20px;
+        }
+      }
+    }
+    /*** 
+    <| <<- LAST READINGS - RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    ADD HIVE - RESPONSIVE SCSS ->> |>
+    ***/
+    .add-hive-container {
+      width: 80vw;
+      font-size: 0.8rem;
+
+      .add-hive-prompt {
+        padding: 10px;
+
+        h2 {
+          margin-right: 20px;
+        }
+
+        img {
+          width: 20px;
+        }
+      }
+
+      hr {
+        margin: 5px 0;
+      }
+
+      .add-hive-form {
+        .add-hive-inputs-container {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          input {
+            font-size: 0.7rem;
+            margin: 5px 0;
+            background-color: rgba(255, 255, 255, 0.6);
+            border: none;
+            border-radius: 100px;
+            padding: 10px 20px;
+          }
+        }
+      }
+
+      button {
+        font-size: 0.7rem;
+        margin: 10px 0;
+      }
+    }
+    /*** 
+    <| <<- ADD HIVE - RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    GRAPH MENU - RESPONSIVE SCSS ->> |>
+    ***/
+    .graph-menu-container {
+      width: 80vw;
+      font-size: 0.8rem;
+
+      .charts-title {
+        img {
+          margin-right: 10px;
+          width: 50px;
+        }
+      }
+
+      .info-icon {
+        width: 15px;
+        height: 15px;
+      }
+
+      .chart-option-inputs {
+        div {
+          select,
+          input,
+          button {
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .types-info-container {
+        font-size: 0.7rem;
+      }
+    }
+    /*** 
+    <| <<- GRAPH MENU - RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    CHARTS - RESPONSIVE SCSS ->> |>
+    ***/
+    .charts-container {
+      .charts-title {
+        font-size: 1.2rem;
+
+        img {
+          width: 50px;
+        }
+      }
+
+      .chart {
+        margin: 20px 0;
+      }
+
+      .no-data-container {
+        h1 {
+          font-size: 1.2rem;
+
+          img {
+            width: 30px;
+            margin-right: 10px;
+          }
+        }
+
+        h2,
+        h3 {
+          font-size: 1rem;
+        }
+
+        h2 {
+          margin: 10px 0;
+        }
+      }
+    }
+    /*** 
+    <| <<- CHARTS - RESPONSIVE SCSS
+    ***/
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .dashboard-container {
+    .last-readings-and-add-hive-container {
+      // background-color: red;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    padding: 10px 0px;
+
+    .dashboard-title {
+      font-size: 1.2rem;
+    }
+
+    /*** 
+    HIVE SELECTOR RESPONSIVE SCSS ->> |>
+    ***/
+    .hives-selector-container {
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .hives-selector {
+        .hive-badge {
+          font-size: 0.7rem;
+
+          div {
+            span {
+              font-size: 0.7rem;
+            }
+
+            .info-icon {
+              width: 14px;
+              height: 14px;
+            }
+          }
+
+          button {
+            font-size: 0.6rem;
+          }
+        }
+      }
+
+      .hs-info-container {
+        font-size: 0.7rem;
+      }
+    }
+    /*** 
+    <| <<- HIVE SELECTOR RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    LAST READINGS - RESPONSIVE SCSS ->> |>
+    ***/
+    .last-readings-container {
+      width: 80vw;
+      margin: 0;
+      margin-bottom: 20px;
+      font-size: 0.7rem;
+
+      .values-box-container {
+        .values-box {
+          .not-found-container {
+            img {
+              width: 15px;
+            }
+          }
+
+          .values-box-title {
+            img {
+              width: 15px;
+            }
+          }
+        }
+      }
+      .last-reading-date {
+        img {
+          width: 15px;
+        }
+      }
+    }
+    /*** 
+    <| <<- LAST READINGS - RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    GRAPH MENU - RESPONSIVE SCSS ->> |>
+    ***/
+    .graph-menu-container {
+      font-size: 0.6rem;
+
+      .charts-title {
+        img {
+          margin-right: 10px;
+          width: 40px;
+        }
+      }
+
+      .info-icon {
+        width: 10px;
+        height: 10px;
+      }
+
+      .chart-option-inputs {
+        flex-direction: column;
+
+        div {
+          width: 100%;
+          margin: 0;
+          margin: 5px 0;
+
+          select,
+          input,
+          button {
+            font-size: 0.6rem;
+          }
+        }
+      }
+
+      .types-info-container {
+        font-size: 0.6rem;
+      }
+    }
+    /*** 
+    <| <<- GRAPH MENU - RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    CHARTS - RESPONSIVE SCSS ->> |>
+    ***/
+    .charts-container {
+      #full-chart {
+        background-color: red;
+        display: none !important;
+      }
+
+      .charts-title {
+        img {
+          margin-right: 10px;
+          width: 40px;
+        }
+      }
+
+      .chart {
+        margin: 20px 0;
+      }
+
+      .no-data-container {
+        h1 {
+          img {
+            width: 30px;
+            margin-right: 10px;
+          }
+        }
+
+        h2,
+        h3 {
+          font-size: 0.8rem;
+        }
+
+        h2 {
+          margin: 5px 0;
+        }
+      }
+    }
+    /*** 
+    <| <<- CHARTS - RESPONSIVE SCSS
+    ***/
+  }
+}

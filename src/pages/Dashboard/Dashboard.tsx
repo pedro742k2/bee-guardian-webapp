@@ -1,4 +1,5 @@
 import "./Dashboard.scss";
+import "./responsive.scss";
 import { useAuth } from "../../services/useAuth";
 import { useState, useEffect, ChangeEvent } from "react";
 import { URL } from "../../services/api";

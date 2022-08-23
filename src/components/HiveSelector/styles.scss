@@ -23,15 +23,18 @@
   }
 
   .hives-selector {
+    max-width: 90%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
+    overflow-x: auto;
 
     .hive-badge {
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      font-size: 1rem;
 
       div {
         display: flex;
@@ -125,21 +128,8 @@
     padding: 10px;
     border-radius: 5px;
 
-    .info-icon {
-      margin: 2px;
-      margin-bottom: 0;
-      background-color: rgba(10, 82, 141, 0.25);
-      padding: 2px;
-      border-radius: 100%;
-
-      transition: all linear 0.1s;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-
     p {
+      text-align: center;
       margin: 0;
     }
   }

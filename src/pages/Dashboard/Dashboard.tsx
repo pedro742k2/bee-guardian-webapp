@@ -1,7 +1,7 @@
 import "./Dashboard.scss";
 import "./responsive.scss";
 import { useAuth } from "../../services/useAuth";
-import { useState, useEffect, ChangeEvent } from "react";
+import { useState, useEffect, ChangeEvent, Fragment } from "react";
 import { URL } from "../../services/api";
 import { IHiveData } from "../../Types/Hive";
 import { IProps } from "../../routes";
@@ -12,6 +12,7 @@ import { LastReadings } from "../../components/LastReadings";
 import { AddHive } from "../../components/AddHive";
 import { Charts } from "../../components/Charts";
 import { GraphMenu } from "../../components/GraphMenu";
+import { HiveNotes } from "../../components/HiveNotes";
 
 export const Dashboard = ({ updatePopup }: IProps) => {
   const { user } = useAuth();
@@ -104,6 +105,14 @@ export const Dashboard = ({ updatePopup }: IProps) => {
       />
       <hr className="divider graph-divider" />
       <Charts selectedHive={selectedHive} data={hiveData?.data} />
+
+      {selectedHive ? (
+        <Fragment>
+          <hr className="divider graph-divider" />
+
+          <HiveNotes token={user.token} selectedHive={selectedHive} />
+        </Fragment>
+      ) : null}
     </main>
   );
 };

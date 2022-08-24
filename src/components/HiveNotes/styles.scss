@@ -1,0 +1,117 @@
+.hive-notes-main {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .charts-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+    margin-bottom: 20px;
+
+    padding: 10px;
+    border-radius: 5px;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.15);
+
+    img {
+      margin-right: 20px;
+      width: 70px;
+      padding: 5px;
+      border-radius: 5px;
+    }
+  }
+
+  .notes-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+
+      padding: 10px;
+      border-radius: 5px;
+      background-color: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(5px);
+
+      p {
+        font-size: 0.8rem;
+        margin: 5px;
+
+        span {
+          background-color: rgba(255, 255, 255, 0.25);
+          padding: 5px;
+          border-radius: 5px;
+        }
+      }
+
+      button {
+        font-size: 0.8rem;
+        margin-top: 10px;
+        align-self: center;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        color: #fff;
+        background-color: rgba(255, 0, 0, 0.5);
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 0, 0, 0.75);
+        }
+      }
+    }
+
+    p {
+      text-align: center;
+      font-size: 1.5rem;
+    }
+  }
+
+  .add-hive-container {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+
+    .add-hive-container-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 30px;
+        margin-left: 20px;
+      }
+    }
+
+    .add-hive-container-inputs {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      input {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+
+      input,
+      button {
+        margin: 10px 0;
+      }
+    }
+  }
+}

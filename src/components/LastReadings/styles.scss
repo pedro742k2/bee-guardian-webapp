@@ -29,7 +29,7 @@
   .values-box-container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
 
     .values-box {
@@ -79,6 +79,7 @@
       }
     }
   }
+
   .last-reading-date {
     display: flex;
     justify-content: center;

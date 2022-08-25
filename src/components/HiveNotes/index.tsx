@@ -3,6 +3,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { URL } from "../../services/api";
 import Open from "../../Assets/Icons/AddHive/open.svg";
 import NotesIcon from "../../Assets/Icons/notes.png";
+import { GrClose } from "react-icons/gr";
 
 interface IProps {
   selectedHive: number | undefined;
@@ -73,20 +74,24 @@ export const HiveNotes = ({ token, selectedHive }: IProps) => {
   };
 
   const handleRemoveNote = async (note_id: number) => {
-    const req = await fetch(URL + "/remove-hive-note", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        token,
-      },
-      body: JSON.stringify({ note_id: note_id, hive_id: selectedHive }),
-    });
+    const prompt = confirm(`Remove note #${note_id}?`);
 
-    const { error } = await req.json();
+    if (prompt) {
+      const req = await fetch(URL + "/remove-hive-note", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          token,
+        },
+        body: JSON.stringify({ note_id: note_id, hive_id: selectedHive }),
+      });
 
-    if (error) return alert(error);
+      const { error } = await req.json();
 
-    return fetchData();
+      if (error) return alert(error);
+
+      return fetchData();
+    }
   };
 
   return (
@@ -107,7 +112,7 @@ export const HiveNotes = ({ token, selectedHive }: IProps) => {
                 key={`note_${note_id}`}
                 id={`note_${note_id}`}
               >
-                <h3>{note}</h3>
+                <h3>{`(#${note_id}) ${note}`}</h3>
                 <p>
                   Added by: <span>{added_by}</span>
                 </p>
@@ -116,9 +121,10 @@ export const HiveNotes = ({ token, selectedHive }: IProps) => {
                 </p>
 
                 <button
-                  className="shadow-primary"
+                  className="remove-btn shadow-primary"
                   onClick={() => handleRemoveNote(note_id)}
                 >
+                  <GrClose className="remove-btn-icon" />
                   Remove note
                 </button>
               </div>

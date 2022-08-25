@@ -109,3 +109,51 @@ hr.divider {
 .author-name a:hover {
   border-color: rgba(255, 255, 255, 0.5);
 }
+
+.container-title {
+  font-size: 2rem;
+  padding: 10px;
+  margin: 0;
+  border-radius: 5px;
+
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-title img {
+  width: 30px;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 670px) {
+  .container-title {
+    font-size: 1.2rem;
+  }
+
+  .container-title img {
+    margin-right: 10px;
+    width: 30px;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .container-title {
+    font-size: 1.5rem;
+  }
+
+  .container-title img {
+    width: 40px;
+  }
+}
+
+@media screen and (max-width: 670px) {
+  .container-title {
+    font-size: 1.2rem;
+  }
+
+  .container-title img {
+    width: 30px;
+  }
+}

@@ -40,7 +40,7 @@ export const LastReadings = ({ lastReadings }: IProps) => {
       <h1>Last Readings</h1>
 
       <Fragment>
-        <hr />
+        <hr className="divider" />
 
         <div className="values-box-container">
           <div className="values-box">

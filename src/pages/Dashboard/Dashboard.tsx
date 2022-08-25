@@ -1,7 +1,7 @@
 import "./Dashboard.scss";
 import "./responsive.scss";
 import { useAuth } from "../../services/useAuth";
-import { useState, useEffect, ChangeEvent, Fragment } from "react";
+import { useState, useEffect, useRef, ChangeEvent, Fragment } from "react";
 import { URL } from "../../services/api";
 import { IHiveData } from "../../Types/Hive";
 import { IProps } from "../../routes";
@@ -13,6 +13,10 @@ import { AddHive } from "../../components/AddHive";
 import { Charts } from "../../components/Charts";
 import { GraphMenu } from "../../components/GraphMenu";
 import { HiveNotes } from "../../components/HiveNotes";
+import { DashboardMenu } from "../../components/DashboardMenu";
+
+const scrollToRef = (ref: any) =>
+  window.scrollTo(0, ref.current.offsetTop - 30);
 
 export const Dashboard = ({ updatePopup }: IProps) => {
   const { user } = useAuth();
@@ -76,11 +80,45 @@ export const Dashboard = ({ updatePopup }: IProps) => {
     return setSelectedHive(hiveId);
   };
 
+  const hiveSelRef = useRef(null);
+  const lrAhRef = useRef(null);
+  const chartOptRef = useRef(null);
+  const chartsRef = useRef(null);
+  const notesRef = useRef(null);
+
+  const executeScroll = (ref: string) => {
+    switch (ref) {
+      case "0":
+        scrollToRef(hiveSelRef);
+        break;
+      case "1":
+        scrollToRef(lrAhRef);
+        break;
+      case "2":
+        scrollToRef(chartOptRef);
+        break;
+      case "3":
+        scrollToRef(chartsRef);
+        break;
+      case "4":
+        scrollToRef(notesRef);
+        break;
+      default:
+        alert("Invalid dashboard navigation");
+    }
+  };
+
   return (
     <main className="dashboard-container">
       <h1 className="dashboard-title">
         Welcome back, <span>{user.profile.name}</span>
       </h1>
+
+      <hr className="divider" />
+
+      <DashboardMenu executeScroll={executeScroll} />
+
+      <hr className="divider" ref={hiveSelRef} />
 
       <HiveSelector
         updatePopup={updatePopup}
@@ -89,26 +127,26 @@ export const Dashboard = ({ updatePopup }: IProps) => {
         selectedHive={selectedHive}
       />
 
-      <hr className="divider" />
+      <hr className="divider" ref={lrAhRef} />
 
       <div className="last-readings-and-add-hive-container">
         <LastReadings lastReadings={hiveData?.lastData[0]} />
         <AddHive updatePopup={updatePopup} token={user.token} />
       </div>
 
-      <hr className="divider graph-divider" />
+      <hr className="divider graph-divider" ref={chartOptRef} />
 
       <GraphMenu
         updateSelectedType={updateSelectedType}
         updateTargetedDate={updateTargetedDate}
         clearDate={clearDate}
       />
-      <hr className="divider graph-divider" />
+      <hr className="divider graph-divider" ref={chartsRef} />
       <Charts selectedHive={selectedHive} data={hiveData?.data} />
 
       {selectedHive ? (
         <Fragment>
-          <hr className="divider graph-divider" />
+          <hr className="divider graph-divider" ref={notesRef} />
 
           <HiveNotes token={user.token} selectedHive={selectedHive} />
         </Fragment>

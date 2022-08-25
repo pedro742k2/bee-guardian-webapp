@@ -89,9 +89,12 @@ export const HiveSelector = ({
 
   return (
     <div className="hives-selector-container shadow-primary">
-      <h2 className="hive-selector-title">Hive Selector</h2>
+      <h1 className="container-title">
+        <img src={HiveIcon} alt="Hive Selector" />
+        Hive Selector
+      </h1>
 
-      <hr />
+      <hr className="divider" />
 
       <div className="hives-selector">
         {hives.length ? (

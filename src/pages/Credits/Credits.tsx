@@ -7,6 +7,9 @@ import HiveLicense from "../../Assets/Licenses/bee-hive.pdf";
 // Credits Icon + License
 import CreditsIcon from "../../Assets/Icons/credits.png";
 import CreditsLicense from "../../Assets/Licenses/credits.pdf";
+// Dashboard Navigation Icon + License
+import DashboardNavIcon from "../../Assets/Icons/dashboard-nav.png";
+import DashboardNavLicense from "../../Assets/Licenses/dashboard-nav.pdf";
 // Last Readings Icons
 import WeightIcon from "../../Assets/Icons/LastReadings/weight.png";
 import IntTempIcon from "../../Assets/Icons/LastReadings/int_temp.png";
@@ -27,6 +30,9 @@ import LineChartLicense from "../../Assets/Licenses/line-chart.pdf";
 // Chart Options Icon + License
 import ChartConfigIcon from "../../Assets/Icons/chart-options.png";
 import ChartConfigLicense from "../../Assets/Licenses/chart-opt.pdf";
+// Hive Notes Icon + License
+import HiveNotesIcon from "../../Assets/Icons/notes.png";
+import HiveNotesLicense from "../../Assets/Licenses/notes.pdf";
 
 import "./styles.scss";
 import "./responsive.scss";
@@ -75,6 +81,12 @@ export const Credits = () => {
       <h2>Icon Credit Attributions</h2>
       <div className="icon-credits-container">
         {renderImgCredit("Bee", "Madness", BeeIcon, BeeLicense)}
+        {renderImgCredit(
+          "Navigation",
+          "Freepik",
+          DashboardNavIcon,
+          DashboardNavLicense
+        )}
         {renderImgCredit("Hive", "Freepik", HiveIcon, HiveLicense)}
         {renderImgCredit("Essay", "Freepik", CreditsIcon, CreditsLicense)}
 
@@ -102,6 +114,8 @@ export const Credits = () => {
           ChartConfigIcon,
           ChartConfigLicense
         )}
+
+        {renderImgCredit("Notes", "Freepik", HiveNotesIcon, HiveNotesLicense)}
       </div>
     </main>
   );

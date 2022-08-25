@@ -4,6 +4,7 @@ import { useAuth } from "../../services/useAuth";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { GrClose } from "react-icons/gr";
 // Title logo
 import BeeLogo from "../../Assets/Icons/bee.png";
 // Button icons
@@ -148,10 +149,17 @@ export const NavBar = () => {
             openMenu ? "open" : ""
           }`}
         >
-          <GiHamburgerMenu
-            className="menu-icon"
-            onClick={() => setMenuOpen((prev) => !prev)}
-          />
+          {openMenu ? (
+            <GrClose
+              className="menu-icon"
+              onClick={() => setMenuOpen((prev) => !prev)}
+            />
+          ) : (
+            <GiHamburgerMenu
+              className="menu-icon"
+              onClick={() => setMenuOpen((prev) => !prev)}
+            />
+          )}
 
           {openMenu ? renderNavLinks() : null}
         </div>

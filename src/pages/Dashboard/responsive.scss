@@ -267,6 +267,23 @@
     /*** 
     <| <<- HIVE NOTES - RESPONSIVE SCSS
     ***/
+
+    /*** 
+    DASHBOARD NAV - RESPONSIVE SCSS ->> |>
+    ***/
+    .dashboard-menu-nav {
+      div {
+        // flex-direction: column;
+
+        button {
+          padding: 10px;
+          font-size: 0.7rem;
+        }
+      }
+    }
+    /*** 
+    <| <<- DASHBOARD NAV - RESPONSIVE SCSS
+    ***/
   }
 }
 
@@ -492,6 +509,25 @@
     }
     /*** 
     <| <<- HIVE NOTES - RESPONSIVE SCSS
+    ***/
+
+    /*** 
+    DASHBOARD NAV - RESPONSIVE SCSS ->> |>
+    ***/
+    .dashboard-menu-nav {
+      div {
+        width: 90%;
+        flex-direction: column;
+
+        button {
+          width: 100%;
+          margin: 5px 0;
+          font-size: 0.7rem;
+        }
+      }
+    }
+    /*** 
+    <| <<- DASHBOARD NAV - RESPONSIVE SCSS
     ***/
   }
 }

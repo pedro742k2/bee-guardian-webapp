@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, useEffect } from "react";
 import { useAuth } from "../../services/useAuth";
 import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
@@ -7,6 +7,7 @@ import { TbSwitch2 } from "react-icons/tb";
 import { IPopup } from "../../App";
 import "./styles.scss";
 import "./responsive.scss";
+import { Rings } from "react-loader-spinner";
 
 interface IProps {
   updatePopup: (props: IPopup) => void;
@@ -14,10 +15,11 @@ interface IProps {
 
 export const Signin = ({ updatePopup }: IProps) => {
   const navigate = useNavigate();
-  const { onLogin } = useAuth();
+  const { onLogin, isPending } = useAuth();
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
+  const [pending, setPending] = useState(false);
 
   const updateUser = (event: ChangeEvent<HTMLInputElement>) =>
     setUser(event.target.value);
@@ -33,20 +35,28 @@ export const Signin = ({ updatePopup }: IProps) => {
   };
 
   const handleSubmit = async () => {
-    const res = await onLogin({ remember, user, password });
+    try {
+      const res = await onLogin({ remember, user, password });
 
-    const { error } = res;
+      const { error } = res;
 
-    if (error)
-      return updatePopup({
-        message: error,
-        color: "red",
-        duration: 5,
-        duration_unit: "s",
-      });
+      if (error)
+        return updatePopup({
+          message: error,
+          color: "red",
+          duration: 5,
+          duration_unit: "s",
+        });
+    } catch (error) {
+      return alert(error);
+    }
 
     return navigate(`/dashboard`);
   };
+
+  useEffect(() => {
+    setPending(isPending);
+  }, [isPending]);
 
   return (
     <main className="form-container">
@@ -86,6 +96,19 @@ export const Signin = ({ updatePopup }: IProps) => {
           <AiOutlineUnlock className="btn-icon" />
           SIGN IN
         </button>
+
+        <div className="loading-animation-container">
+          <Rings
+            height="80"
+            width="80"
+            color="#FF5500"
+            radius="6"
+            wrapperStyle={{}}
+            wrapperClass=""
+            visible={pending}
+            ariaLabel="rings-loading"
+          />
+        </div>
       </div>
 
       <div className="switch-container">

@@ -138,6 +138,10 @@ hr.divider {
   }
 }
 
+.loading-animation-container {
+  margin-top: 20px;
+}
+
 @media screen and (max-width: 1150px) {
   .container-title {
     font-size: 1.5rem;

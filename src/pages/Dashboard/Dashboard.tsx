@@ -14,18 +14,20 @@ import { Charts } from "../../components/Charts";
 import { GraphMenu } from "../../components/GraphMenu";
 import { HiveNotes } from "../../components/HiveNotes";
 import { DashboardMenu } from "../../components/DashboardMenu";
+import { Rings } from "react-loader-spinner";
 
 const scrollToRef = (ref: any) =>
   window.scrollTo(0, ref.current.offsetTop - 30);
 
 export const Dashboard = ({ updatePopup }: IProps) => {
-  const { user } = useAuth();
+  const { user, isPending } = useAuth();
   const [selectedHive, setSelectedHive] = useState<number | undefined>(
     undefined
   );
   const [hiveData, setHiveData] = useState<IHiveData>();
   const [type, setType] = useState<number>(1);
   const [targetedDate, setTargetedDate] = useState<string>();
+  const [pending, setPending] = useState(false);
 
   const updateSelectedType = (event: ChangeEvent<HTMLSelectElement>) =>
     setType(Number(event.target.value));
@@ -37,34 +39,43 @@ export const Dashboard = ({ updatePopup }: IProps) => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetch(URL + "/get-hive-data", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          token: user.token,
-        },
-        body: JSON.stringify({
-          hive_id: selectedHive,
-          type,
-          targetedDate,
-        }),
-      });
+      try {
+        setPending(true);
 
-      const res = await data.json();
-
-      const { error } = res;
-
-      if (error) {
-        setHiveData(undefined);
-        return updatePopup({
-          message: error,
-          color: "red",
-          duration: 5,
-          duration_unit: "s",
+        const data = await fetch(URL + "/get-hive-data", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            token: user.token,
+          },
+          body: JSON.stringify({
+            hive_id: selectedHive,
+            type,
+            targetedDate,
+          }),
         });
-      }
 
-      setHiveData(res);
+        const res = await data.json();
+
+        const { error } = res;
+
+        setPending(false);
+
+        if (error) {
+          setHiveData(undefined);
+          return updatePopup({
+            message: error,
+            color: "red",
+            duration: 5,
+            duration_unit: "s",
+          });
+        }
+
+        setHiveData(res);
+      } catch (error) {
+        setPending(false);
+        alert(error);
+      }
     };
 
     if (selectedHive) {
@@ -73,6 +84,10 @@ export const Dashboard = ({ updatePopup }: IProps) => {
       setHiveData(undefined);
     }
   }, [selectedHive, type, targetedDate]);
+
+  useEffect(() => {
+    setPending(isPending);
+  }, [isPending]);
 
   const updateSelectedHive = (hiveId: number) => {
     if (hiveId === selectedHive) return setSelectedHive(undefined);
@@ -110,6 +125,19 @@ export const Dashboard = ({ updatePopup }: IProps) => {
 
   return (
     <main className="dashboard-container">
+      <div className="loading-animation-container">
+        <Rings
+          height="80"
+          width="80"
+          color="#FF5500"
+          radius="6"
+          wrapperStyle={{}}
+          wrapperClass=""
+          visible={pending}
+          ariaLabel="rings-loading"
+        />
+      </div>
+
       <h1 className="dashboard-title">
         Welcome back, <span>{user.profile.name}</span>
       </h1>

@@ -28,6 +28,7 @@ interface IRegister extends INewUser {
 
 export interface IAuthContext {
   isAuthenticated: () => boolean;
+  isPending: boolean;
   updateUserProfile: (token: string, refresh_token: string) => Promise<void>;
 
   user: IUser;
@@ -101,12 +102,16 @@ export const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }: IChildren) => {
   const [user, setUser] = useState<IUser>(emptyUserState);
+  const [pending, setPending] = useState(false);
 
   const updateUserProfile = async (token: string, refreshToken: string) => {
+    setPending(true);
     const { error, newToken, newRefreshToken, profile } = await getUserProfile(
       token,
       refreshToken
     );
+
+    setPending(false);
 
     if (error) {
       alert("Access denied.");
@@ -139,8 +144,11 @@ export const AuthProvider = ({ children }: IChildren) => {
   };
 
   const handleLogin = async (credentials: ILogin) => {
+    setPending(true);
     const { remember, ...fields } = credentials;
     const userInfo: IUser = await auth(fields);
+
+    setPending(false);
 
     const { error } = userInfo;
 
@@ -173,6 +181,7 @@ export const AuthProvider = ({ children }: IChildren) => {
 
   const value: IAuthContext = {
     user,
+    isPending: pending,
     isAuthenticated,
     updateUserProfile,
     onLogin: handleLogin,

@@ -2,7 +2,7 @@ import "./styles.scss";
 import { URL } from "../../services/api";
 import Open from "../../Assets/Icons/AddHive/open.svg";
 import { ChangeEvent, useState } from "react";
-import { IPopup } from "../../App";
+import { IPopup } from "../Popup";
 
 interface IProps {
   token: string;
@@ -28,8 +28,6 @@ export const AddHive = ({ token, updatePopup }: IProps) => {
       return updatePopup({
         message: "Please fill both fields.",
         color: "yellow",
-        duration: 5,
-        duration_unit: "s",
       });
 
     const data = await fetch(URL + "/add-hive", {
@@ -52,16 +50,12 @@ export const AddHive = ({ token, updatePopup }: IProps) => {
       return updatePopup({
         message: error,
         color: "yellow",
-        duration: 5,
-        duration_unit: "s",
       });
 
     if (message === "This hive is already added") {
       return updatePopup({
         message: message,
         color: "yellow",
-        duration: 5,
-        duration_unit: "s",
       });
     }
 

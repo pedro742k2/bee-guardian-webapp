@@ -176,7 +176,11 @@ export const Dashboard = ({ updatePopup }: IProps) => {
         <Fragment>
           <hr className="divider" ref={notesRef} />
 
-          <HiveNotes token={user.token} selectedHive={selectedHive} />
+          <HiveNotes
+            updatePopup={updatePopup}
+            token={user.token}
+            selectedHive={selectedHive}
+          />
         </Fragment>
       ) : null}
     </main>

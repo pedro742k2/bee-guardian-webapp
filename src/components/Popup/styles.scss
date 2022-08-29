@@ -1,4 +1,8 @@
 .popup-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
   position: fixed;
   bottom: 30px;
   font-size: 1rem;
@@ -12,5 +16,10 @@
 
   p {
     margin: 0;
+  }
+
+  .close-popup-icon {
+    cursor: pointer;
+    margin-left: 10px;
   }
 }

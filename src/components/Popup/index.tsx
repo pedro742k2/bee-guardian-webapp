@@ -1,11 +1,16 @@
 import "./styles.scss";
+import { GrClose } from "react-icons/gr";
 
-export interface IPopupInfo {
+export interface IPopup {
   message: string;
   color: "green" | "yellow" | "red";
 }
 
-export const Popup = ({ message, color }: IPopupInfo) => {
+export interface IPopupInfo extends IPopup {
+  closePopup: () => void;
+}
+
+export const Popup = ({ message, color, closePopup }: IPopupInfo) => {
   const getColor = (color: string) => {
     switch (color) {
       case "red":
@@ -23,6 +28,7 @@ export const Popup = ({ message, color }: IPopupInfo) => {
       className="popup-container animate__animated animate__bounceInDown"
     >
       <p>{message}</p>
+      <GrClose className="close-popup-icon" onClick={closePopup} />
     </div>
   );
 };

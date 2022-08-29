@@ -4,10 +4,12 @@ import { URL } from "../../services/api";
 import Open from "../../Assets/Icons/AddHive/open.svg";
 import NotesIcon from "../../Assets/Icons/notes.png";
 import { GrClose } from "react-icons/gr";
+import { IPopup } from "../Popup";
 
 interface IProps {
   selectedHive: number | undefined;
   token: string;
+  updatePopup: (props: IPopup) => void;
 }
 
 interface INote {
@@ -17,7 +19,7 @@ interface INote {
   added_date: string;
 }
 
-export const HiveNotes = ({ token, selectedHive }: IProps) => {
+export const HiveNotes = ({ token, selectedHive, updatePopup }: IProps) => {
   const [notes, setNotes] = useState<INote[]>([]);
   const [newNote, setNewNote] = useState<string>();
 
@@ -57,6 +59,12 @@ export const HiveNotes = ({ token, selectedHive }: IProps) => {
 
     inputElement.value = "";
 
+    if (!newNote?.trim())
+      return updatePopup({
+        message: "Can't add an empty note.",
+        color: "yellow",
+      });
+
     const req = await fetch(URL + "/add-hive-note", {
       method: "POST",
       headers: {
@@ -68,7 +76,11 @@ export const HiveNotes = ({ token, selectedHive }: IProps) => {
 
     const { error } = await req.json();
 
-    if (error) return alert(error);
+    if (error)
+      return updatePopup({
+        message: error,
+        color: "red",
+      });
 
     return fetchData();
   };
@@ -88,7 +100,11 @@ export const HiveNotes = ({ token, selectedHive }: IProps) => {
 
       const { error } = await req.json();
 
-      if (error) return alert(error);
+      if (error)
+        return updatePopup({
+          message: error,
+          color: "red",
+        });
 
       return fetchData();
     }

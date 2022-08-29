@@ -66,8 +66,6 @@ export const Dashboard = ({ updatePopup }: IProps) => {
           return updatePopup({
             message: error,
             color: "red",
-            duration: 5,
-            duration_unit: "s",
           });
         }
 

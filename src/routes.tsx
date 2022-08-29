@@ -10,8 +10,8 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { Credits } from "./pages/Credits/Credits";
 // Components
 import { NavBar } from "./components/Navbar";
-import { IPopup } from "./App";
 import { InDevelopment } from "./pages/InDevelopment/InDevelopment";
+import { IPopup } from "./components/Popup";
 
 export interface IProps {
   updatePopup: (props: IPopup) => void;

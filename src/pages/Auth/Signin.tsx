@@ -4,10 +4,10 @@ import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { TbSwitch2 } from "react-icons/tb";
-import { IPopup } from "../../App";
 import "./styles.scss";
 import "./responsive.scss";
 import { Rings } from "react-loader-spinner";
+import { IPopup } from "../../components/Popup";
 
 interface IProps {
   updatePopup: (props: IPopup) => void;
@@ -44,8 +44,6 @@ export const Signin = ({ updatePopup }: IProps) => {
         return updatePopup({
           message: error,
           color: "red",
-          duration: 5,
-          duration_unit: "s",
         });
     } catch (error) {
       return alert(error);

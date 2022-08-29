@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { URL } from "../../services/api";
 import { FcInfo } from "react-icons/fc";
 import { GrClose } from "react-icons/gr";
-import { IPopup } from "../../App";
+import { IPopup } from "../Popup";
 
 interface IHives {
   hive_id: number;
@@ -44,8 +44,6 @@ export const HiveSelector = ({
         return updatePopup({
           message: error,
           color: "red",
-          duration: 5,
-          duration_unit: "s",
         });
 
       return setHives(res);
@@ -78,8 +76,6 @@ export const HiveSelector = ({
           return updatePopup({
             message: error,
             color: "red",
-            duration: 5,
-            duration_unit: "s",
           });
 
         document.location.reload();

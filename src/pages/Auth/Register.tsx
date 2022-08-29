@@ -5,7 +5,7 @@ import { AiOutlineLock, AiOutlineUnlock } from "react-icons/ai";
 import { BsFillPersonBadgeFill } from "react-icons/bs";
 import { TbSwitch2 } from "react-icons/tb";
 import { useNavigate } from "react-router-dom";
-import { IPopup } from "../../App";
+import { IPopup } from "../../components/Popup";
 
 interface IProps {
   updatePopup: (props: IPopup) => void;
@@ -53,8 +53,6 @@ export const Register = ({ updatePopup }: IProps) => {
       return updatePopup({
         message: "Passwords do not match",
         color: "red",
-        duration: 5,
-        duration_unit: "s",
       });
 
     const res = await auth.onRegister({
@@ -72,8 +70,6 @@ export const Register = ({ updatePopup }: IProps) => {
       return updatePopup({
         message: error,
         color: "red",
-        duration: 5,
-        duration_unit: "s",
       });
 
     return navigate("/dashboard");

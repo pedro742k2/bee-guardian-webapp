@@ -13,7 +13,7 @@ export const DashboardMenu = ({ executeScroll }: IProps) => {
         Dashboard Navigation
       </h1>
 
-      <hr className="divider" />
+      <hr className="divider container" />
 
       <div>
         <button className="shadow-primary" onClick={() => executeScroll("0")}>

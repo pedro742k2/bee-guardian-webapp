@@ -29,10 +29,12 @@ export const GraphMenu = ({
 
   return (
     <div className="graph-menu-container">
-      <h1 className="charts-title shadow-primary">
+      <h1 className="container-title">
         <img src={ChartOptionsIcon} alt="Charts" />
         Chart Options
       </h1>
+
+      <hr className="divider container" />
 
       <div className="chart-option-inputs">
         <div>

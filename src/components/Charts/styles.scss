@@ -1,33 +1,20 @@
 .charts-container {
-  width: 90vw;
-
-  .charts-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: 0;
-    margin-bottom: 20px;
-
-    padding: 10px;
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.15);
-
-    img {
-      margin-right: 20px;
-      width: 70px;
-      padding: 5px;
-      border-radius: 5px;
-    }
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 20px 0;
+  border-radius: 5px;
 
   .chart {
-    margin: 50px 0;
-    background-color: rgba(210, 60, 0, 0.5);
-    backdrop-filter: blur(10px);
+    max-width: 90% !important;
+    margin: 50px 20px;
+    background-color: rgba(210, 60, 0, 0.4);
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
   }
 
   .chart:first-of-type {
@@ -39,6 +26,7 @@
   }
 
   .no-data-container {
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: stretch;

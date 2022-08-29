@@ -85,7 +85,7 @@ export const AddHive = ({ token, updatePopup }: IProps) => {
           showForm ? "show" : "hide"
         } add-hive-form animate__animated animate__fadeIn`}
       >
-        <hr className="divider" />
+        <hr className="divider container" />
 
         <div className="add-hive-inputs-container">
           <input

@@ -140,7 +140,6 @@
     GRAPH MENU - RESPONSIVE SCSS ->> |>
     ***/
     .graph-menu-container {
-      width: 80vw;
       font-size: 0.8rem;
 
       .charts-title {
@@ -186,7 +185,7 @@
       }
 
       .chart {
-        margin: 20px 0;
+        margin: 20px;
       }
 
       .no-data-container {
@@ -304,6 +303,25 @@
     }
 
     /*** 
+    DASHBOARD NAV - RESPONSIVE SCSS ->> |>
+    ***/
+    .dashboard-menu-nav {
+      div {
+        width: 90%;
+        flex-direction: column;
+
+        button {
+          width: 100%;
+          margin: 5px 0;
+          font-size: 0.7rem;
+        }
+      }
+    }
+    /*** 
+    <| <<- DASHBOARD NAV - RESPONSIVE SCSS
+    ***/
+
+    /*** 
     HIVE SELECTOR RESPONSIVE SCSS ->> |>
     ***/
     .hives-selector-container {
@@ -396,7 +414,7 @@
         flex-direction: column;
 
         div {
-          width: 100%;
+          width: 90%;
           margin: 0;
           margin: 5px 0;
 
@@ -433,7 +451,7 @@
       }
 
       .chart {
-        margin: 20px 0;
+        margin: 20px 10px;
       }
 
       .no-data-container {
@@ -509,25 +527,6 @@
     }
     /*** 
     <| <<- HIVE NOTES - RESPONSIVE SCSS
-    ***/
-
-    /*** 
-    DASHBOARD NAV - RESPONSIVE SCSS ->> |>
-    ***/
-    .dashboard-menu-nav {
-      div {
-        width: 90%;
-        flex-direction: column;
-
-        button {
-          width: 100%;
-          margin: 5px 0;
-          font-size: 0.7rem;
-        }
-      }
-    }
-    /*** 
-    <| <<- DASHBOARD NAV - RESPONSIVE SCSS
     ***/
   }
 }

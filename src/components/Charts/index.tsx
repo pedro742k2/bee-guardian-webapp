@@ -93,10 +93,12 @@ export const Charts = ({ selectedHive, data }: IProps) => {
 
   return (
     <div className="charts-container">
-      <h1 className="charts-title shadow-primary">
+      <h1 className="container-title">
         <img src={ChartIcon} alt="Charts" />
         Reading Charts
       </h1>
+
+      <hr className="divider container" />
 
       {data?.length ? (
         <Fragment>

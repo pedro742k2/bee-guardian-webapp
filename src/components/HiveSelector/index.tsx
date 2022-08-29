@@ -94,7 +94,7 @@ export const HiveSelector = ({
         Hive Selector
       </h1>
 
-      <hr className="divider" />
+      <hr className="divider container" />
 
       <div className="hives-selector">
         {hives.length ? (

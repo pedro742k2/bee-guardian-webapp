@@ -162,19 +162,19 @@ export const Dashboard = ({ updatePopup }: IProps) => {
         <AddHive updatePopup={updatePopup} token={user.token} />
       </div>
 
-      <hr className="divider graph-divider" ref={chartOptRef} />
+      <hr className="divider" ref={chartOptRef} />
 
       <GraphMenu
         updateSelectedType={updateSelectedType}
         updateTargetedDate={updateTargetedDate}
         clearDate={clearDate}
       />
-      <hr className="divider graph-divider" ref={chartsRef} />
+      <hr className="divider" ref={chartsRef} />
       <Charts selectedHive={selectedHive} data={hiveData?.data} />
 
       {selectedHive ? (
         <Fragment>
-          <hr className="divider graph-divider" ref={notesRef} />
+          <hr className="divider" ref={notesRef} />
 
           <HiveNotes token={user.token} selectedHive={selectedHive} />
         </Fragment>

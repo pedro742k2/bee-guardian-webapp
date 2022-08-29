@@ -92,6 +92,15 @@ hr.divider {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
+hr.divider.container {
+  width: 90%;
+  height: 2px;
+  margin: 20px 0;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  box-shadow: none;
+}
+
 .author-name {
   font-family: Pacifico, Roboto;
 }
@@ -122,24 +131,13 @@ hr.divider {
   align-items: center;
 }
 
-.container-title img {
-  width: 30px;
-  margin-right: 20px;
-}
-
-@media screen and (max-width: 670px) {
-  .container-title {
-    font-size: 1.2rem;
-  }
-
-  .container-title img {
-    margin-right: 10px;
-    width: 30px;
-  }
-}
-
 .loading-animation-container {
   margin-top: 20px;
+}
+
+.container-title img {
+  width: 50px;
+  margin-right: 20px;
 }
 
 @media screen and (max-width: 1150px) {
@@ -158,6 +156,7 @@ hr.divider {
   }
 
   .container-title img {
+    margin-right: 10px;
     width: 30px;
   }
 }

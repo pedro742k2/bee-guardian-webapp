@@ -1,34 +1,13 @@
 .graph-menu-container {
-  width: 90vw;
-
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  // margin-bottom: 0;
-
-  .charts-title {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    margin: 0;
-    margin-bottom: 20px;
-
-    padding: 10px;
-    border-radius: 5px;
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.15);
-
-    img {
-      margin-right: 20px;
-      width: 70px;
-      padding: 5px;
-      border-radius: 5px;
-    }
-  }
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  padding: 20px 0;
+  border-radius: 5px;
 
   .info-icon {
     margin-left: 10px;
@@ -46,7 +25,7 @@
   }
 
   .chart-option-inputs {
-    width: 100%;
+    width: 90%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,7 +65,8 @@
   }
 
   .types-info-container {
-    align-self: flex-start;
+    width: 90%;
+    align-self: center;
     display: flex;
     justify-content: flex-start;
     align-items: stretch;

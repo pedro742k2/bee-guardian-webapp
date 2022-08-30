@@ -9,25 +9,35 @@ function App() {
   const [showPopup, setShowPopup] = useState(false);
   const [popupInfo, setPopupInfo] = useState<IPopup>();
 
+  const clearTimeouts = () => {
+    let id = window.setTimeout(function () {}, 0);
+
+    while (id--) {
+      console.log(`Cleared timeout #${id}`);
+      // will do nothing if no timeout with id is present
+      window.clearTimeout(id);
+    }
+  };
+
   const updatePopup = (popupProps: IPopup) => {
+    clearTimeouts();
     setPopupInfo(popupProps);
     setShowPopup(true);
 
     setTimeout(() => {
+      clearTimeouts();
       setShowPopup(false);
-
-      let id = window.setTimeout(function () {}, 0);
-
-      while (id--) {
-        // will do nothing if no timeout with id is present
-        window.clearTimeout(id);
-      }
     }, 10000);
 
-    return () => {};
+    return () => {
+      clearTimeouts();
+    };
   };
 
-  const closePopup = () => setShowPopup(false);
+  const closePopup = () => {
+    clearTimeouts();
+    setShowPopup(false);
+  };
 
   return (
     <AuthProvider>

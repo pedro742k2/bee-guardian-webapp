@@ -16,7 +16,18 @@ This project allows the beekeepers not to have to wear a special suit and move e
   
 ### ⚙️ If you want to test it locally:
   - Clone the repository;
-  - Execute `npm run dev`.
+  - Inside the repository:
+    - Execute `npm install` to install all project dependencies;
+    - Execute `npm run dev` to run the web app and (by default) access it at http://127.0.0.1:5173/bee-guardian-webapp (the link will be provided by the terminal);
+  - To see the readings of an actual hive, you can both:
+    - Login with the following credentials:
+      - user: `pedro2002`;
+      - password: `123456`;
+      - Go to page `Dashboard`;
+      - Select Hive ID `101` named `Hive A`.
+    - Register a new account:
+      - Go to page `Dashboard`;
+      - Add the ID `101` on the "Last Readings & Add Hive" section with the description you want.
 
 ## 🤝 Contributions and feedback
 

@@ -29,7 +29,7 @@ export const NavBar = () => {
   const changeNav = () => {
     const navBar = document.querySelector(".app-nav-container")! as HTMLElement;
 
-    if (window.scrollY >= 66) return navBar.classList.add("scrolled");
+    if (window.scrollY >= 40) return navBar.classList.add("scrolled");
 
     return navBar.classList.remove("scrolled");
   };

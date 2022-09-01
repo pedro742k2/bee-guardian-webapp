@@ -140,6 +140,8 @@ hr.divider.container {
   margin-right: 20px;
 }
 
+/* RESPONSIVE -> */
+
 @media screen and (max-width: 1150px) {
   .container-title {
     font-size: 1.5rem;
@@ -160,3 +162,29 @@ hr.divider.container {
     width: 30px;
   }
 }
+
+/* <- RESPONSIVE */
+
+/* SCROLLBAR -> */
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ff7b00;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff5500;
+}
+
+/* <- SCROLLBAR */

@@ -45,19 +45,19 @@ export const Credits = () => {
     license: string
   ) => (
     <div className="icon-credits-box shadow-primary">
-      <p>
-        Author's Description: <span>{description}</span>
-      </p>
-      <p>
-        Licensor's Author: <span>{author}</span>
-      </p>
-
       <div className="license-container">
         <img src={icon} alt={description} />
         <a href={license} download>
           Download license
         </a>
       </div>
+
+      <p>
+        Author's Description: <span>{description}</span>
+      </p>
+      <p>
+        Licensor's Author: <span>{author}</span>
+      </p>
     </div>
   );
 

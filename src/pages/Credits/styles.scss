@@ -66,6 +66,10 @@
         span {
           color: #000;
         }
+
+        &:last-of-type {
+          margin: 0;
+        }
       }
 
       .license-container {

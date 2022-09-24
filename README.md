@@ -45,10 +45,10 @@ This project allows the beekeepers not to have to wear a special suit and move e
       - user: `pedro2002`;
       - password: `123456`;
       - Go to page `Dashboard`;
-      - Select Hive ID `101` named `Hive A`.
+      - Select Hive ID `101` named `Hive A`. (I'll be updating the hive readings weekly)
     - Register a new account:
       - Go to page `Dashboard`;
-      - Add the ID `101` on the "Last Readings & Add Hive" section with the description you want.
+      - Add the ID `101` on the "Last Readings & Add Hive" section with the description you want. (I'll be updating the hive readings weekly)
 
 ## 🤝 Contributions and feedback
 

@@ -29,6 +29,13 @@ This project allows the beekeepers not to have to wear a special suit and move e
 ### Hive Notes
 <img width="980" alt="hive notes" src="https://user-images.githubusercontent.com/54741310/192089882-6c5403a3-39ff-4ad8-807c-a26389efbe08.png">
 
+## Database Entity Relationship Diagram
+
+<img width="980" alt="image" src="https://user-images.githubusercontent.com/54741310/193444668-c39d3bf8-d4ad-4413-bb37-5ca4acfb9303.png">
+
+## Mock scheme (Concept of real implementation)
+
+<img width="980" alt="image" src="https://user-images.githubusercontent.com/54741310/193444541-12467f29-f13b-41d1-9d31-928108bf6b5d.png">
 
 ## How to test
 
@@ -66,4 +73,5 @@ This project allows the beekeepers not to have to wear a special suit and move e
   - Express
   - Bcrypt
   - JSON Web Token
-  - Database: PostgreSQL, Redis
+  - *Relational SQL Database*: PostgreSQL
+  - *Non-Relational key-value Database*: Redis *(chache purposes)*
